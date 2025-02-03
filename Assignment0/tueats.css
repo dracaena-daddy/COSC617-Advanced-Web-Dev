@@ -1,0 +1,27 @@
+/* CSS file for tueats.html */
+
+th {
+    font-weight: bold;
+}
+
+table {
+    width: 75%;
+    border-style: solid;
+    border-width: 1px;
+    text-align: center;
+    background-color: #808080;
+}
+
+#title {
+    /* Photo by <a href="https://unsplash.com/@jontyson?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Jon Tyson</a> on <a href="https://unsplash.com/photos/brown-paper-bag-on-gray-concrete-floor-UuzUfw4qepk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> */
+    background-image: url("./food.jpg");
+    background-position: center;
+    background-size: cover; 
+    background-repeat: no-repeat;
+    padding: 100px;
+    text-align: center;
+}
+
+h1 {
+    color: rgb(255, 187, 0);
+}
