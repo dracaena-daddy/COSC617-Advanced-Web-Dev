@@ -1,14 +1,41 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <h1>Page in progress...</h1>
-    </body>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <h1>Hello, <span id="display-username1"></span>!</h1>
+    <ul>
+        <li>Username: <span id="display-username2"></span></li>
+        <li>Email: <span id="display-email"></span></li>
+        <li>Subscribed to newsletter: <span id="display-newsletter"></span></li>
+
+    </ul>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Retrieve stored data from sessionStorage
+            const username = sessionStorage.getItem("username") || "Not provided";
+            const email = sessionStorage.getItem("email") || "Not provided";
+            const referral = sessionStorage.getItem("referral") || "Not provided";
+            const newsletter = sessionStorage.getItem("newsletter") === "true" ? "Yes" : "No";
+
+            // Display the stored values on the page
+            document.getElementById("display-username1").textContent = username;
+            document.getElementById("display-username2").textContent = username;
+            document.getElementById("display-email").textContent = email;
+            // document.getElementById("display-referral").textContent = referral;
+            if (newsletter === true) {
+                document.getElementById("display-newsletter").textContent = newsletter
+            }
+        });
+    </script>
+</body>
+
 </html>
