@@ -20,7 +20,7 @@
             <ul type="none">
                 <li><label>Username: <input type="text" id="username"></label></li>
                 <li><label>Email: <input type="text" id="email"></label></li>
-                <li><label>Referral (optional): <input type="text" id="referral"></label></li>
+                <li><label>Referral (optional): <input type="text" id="referral"></label><span id="valid"></span></li>
                 <li><label>Password: <input type="password" id="password"></label></li>
                 <li><label>Verify Password: <input type="password" id="verify-password"></label></li>
                 <li><label>Sign up for our newsletter?<input type="checkbox" id="newsletter"></label></li>
@@ -66,6 +66,20 @@
         // html page tueats_completed.html
         document.addEventListener("DOMContentLoaded", function () {
             const form = document.getElementById("sign-up-form");
+            const invalidCodes = ["tucis", "bogo", "eatgood"];
+            let invalid = false;
+
+            // Track referral code as user types before pressing submit
+            document.getElementById("referral").addEventListener("input", function(event) {
+                if (invalidCodes.includes(event.target.value)){
+                    document.getElementById("valid").textContent = "This referral code is invalid."
+                    invalid = true;
+
+                } else {
+                    document.getElementById("valid").textContent = ""
+                    invalid = false;
+                }
+            })
 
             // Add an event listenr that will save data locally during 
             // browser session that we can retrieve later
@@ -80,19 +94,23 @@
                 const verifyPassword = document.getElementById("verify-password").value;
                 const newsletter = document.getElementById("newsletter").checked;
 
-                // Store form data in sessionStorage
-                sessionStorage.setItem("username", username);
-                sessionStorage.setItem("email", email);
-                sessionStorage.setItem("referral", referral);
-                sessionStorage.setItem("newsletter", newsletter);
-                sessionStorage.setItem("password", password);
-                sessionStorage.setItem("verify-password", verifyPassword);
-
-                // Make sure the passwords match before and 
-                // do not allow the user to continue to tueats completed.html
-                if (password !== verifyPassword) {
-                    alert("Password do not match! Please try again.")
+                // Validation checks
+                if (username.length < 6){
+                    alert("Username must be greater than 6 characters. Please try again.");
+                } else if (username.length > 24) {
+                    alert("Username must be less than 24 characters. Please try again.");
+                } else if (password !== verifyPassword) {
+                    alert("Password do not match! Please try again.");
+                } else if (invalid) {
+                    alert("This referral code is invalid. Please try again.");
                 } else {
+                    // Store form data in sessionStorage and go to next page
+                    sessionStorage.setItem("username", username);
+                    sessionStorage.setItem("email", email);
+                    sessionStorage.setItem("referral", referral);
+                    sessionStorage.setItem("newsletter", newsletter);
+                    sessionStorage.setItem("password", password);
+                    sessionStorage.setItem("verify-password", verifyPassword);
                     window.location.href = "tueats_completed.html";
                 }
             });
