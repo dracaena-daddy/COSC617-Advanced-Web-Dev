@@ -7,13 +7,14 @@ th {
 table {
     width: 75%;
     border-style: solid;
+    border-color: black;
     border-width: 1px;
     text-align: center;
     background-color: #808080;
 }
 
 #title {
-    /* Photo by <a href="https://unsplash.com/@jontyson?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Jon Tyson</a> on <a href="https://unsplash.com/photos/brown-paper-bag-on-gray-concrete-floor-UuzUfw4qepk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> */
+    /* Photo by <a href="https://unsplash.com/photos/brown-paper-bag-on-gray-concrete-floor-UuzUfw4qepk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> */
     background-image: url("./food.jpg");
     background-position: center;
     background-size: cover; 
@@ -28,4 +29,8 @@ h1 {
 
 a:hover {
     color: rgb(255, 187, 0);
+}
+
+#valid {
+    color: red;
 }

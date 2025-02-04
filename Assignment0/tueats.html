@@ -12,7 +12,7 @@
 
 <body>
     <div id="title">
-        <h1>Welcome to TU Eats!</h1>
+        <h1>Welcome to TUEats!</h1>
     </div>
     <form id="sign-up-form" action="./tueats_completed.html">
         <fieldset id="sign-up-fieldset">
@@ -95,7 +95,15 @@
                 const newsletter = document.getElementById("newsletter").checked;
 
                 // Validation checks
-                if (username.length < 6){
+                if (!username) {
+                    alert("Username is required");
+                } else if (!email) {
+                    alert("Email is required");
+                } else if (!password) {
+                    alert("Password is required");
+                } else if (!verifyPassword) {
+                    alert("Password verification is required");
+                } else if (username.length < 6){
                     alert("Username must be greater than 6 characters. Please try again.");
                 } else if (username.length > 24) {
                     alert("Username must be less than 24 characters. Please try again.");
