@@ -78,18 +78,23 @@
                 const referral = document.getElementById("referral").value;
                 const password = document.getElementById("password").value;
                 const verifyPassword = document.getElementById("verify-password").value;
-                const newsletter = document.getElementById("newsletter").checked; // Checkbox value
+                const newsletter = document.getElementById("newsletter").checked;
 
                 // Store form data in sessionStorage
                 sessionStorage.setItem("username", username);
                 sessionStorage.setItem("email", email);
                 sessionStorage.setItem("referral", referral);
                 sessionStorage.setItem("newsletter", newsletter);
-                sessionStorage.setItem("password", password)
-                sessionStorage.setItem("verify-password", verifyPassword)
+                sessionStorage.setItem("password", password);
+                sessionStorage.setItem("verify-password", verifyPassword);
 
-                window.location.href = "tueats_completed.html";
-
+                // Make sure the passwords match before and 
+                // do not allow the user to continue to tueats completed.html
+                if (password !== verifyPassword) {
+                    alert("Password do not match! Please try again.")
+                } else {
+                    window.location.href = "tueats_completed.html";
+                }
             });
         });
     </script>

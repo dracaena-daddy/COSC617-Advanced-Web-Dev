@@ -11,12 +11,14 @@
 </head>
 
 <body>
-    <h1>Hello, <span id="display-username1"></span>!</h1>
+    <h1>Hello:</h1>
     <ul>
-        <li>Username: <span id="display-username2"></span></li>
+        <li>Username: <span id="display-username"></span></li>
         <li>Email: <span id="display-email"></span></li>
+        <li>Password: <span id = "display-password"></span></li>
+        <li>Password Verify: <span id = "display-verify"></span></li>
+        <li>Referral Code: <span id = "display-referral"></span></li>
         <li>Subscribed to newsletter: <span id="display-newsletter"></span></li>
-
     </ul>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -24,16 +26,17 @@
             const username = sessionStorage.getItem("username") || "Not provided";
             const email = sessionStorage.getItem("email") || "Not provided";
             const referral = sessionStorage.getItem("referral") || "Not provided";
-            const newsletter = sessionStorage.getItem("newsletter") === "true" ? "Yes" : "No";
+            const newsletter = sessionStorage.getItem("newsletter");
+            const password = sessionStorage.getItem("password") || "Not provided";
+            const passwordVerify = sessionStorage.getItem("verify-password") || "Not provided";
 
             // Display the stored values on the page
-            document.getElementById("display-username1").textContent = username;
-            document.getElementById("display-username2").textContent = username;
+            document.getElementById("display-username").textContent = username;
             document.getElementById("display-email").textContent = email;
-            // document.getElementById("display-referral").textContent = referral;
-            if (newsletter === true) {
-                document.getElementById("display-newsletter").textContent = newsletter
-            }
+            document.getElementById("display-newsletter").textContent = newsletter;
+            document.getElementById("display-password").textContent = password;
+            document.getElementById("display-verify").textContent = passwordVerify;
+            document.getElementById("display-referral").textContent = referral;
         });
     </script>
 </body>
