@@ -4,11 +4,10 @@ const fs = require('fs');
 // Let's figure out how to read the file in as a command line argument
 const filename = process.argv[2];
 
-// prevent more than one CLI argument from allowing the program to run 
+// Prevent more than one CLI argument from allowing the program to run 
 if (process.argv[3]) {
     console.log("Error: Program only takes 1 file. ")
 } else {
-    // we'll read in the  desired file
     let buffer = fs.readFileSync(filename);
     let content = buffer.toString();
 
