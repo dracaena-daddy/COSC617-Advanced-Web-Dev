@@ -1,9 +1,3 @@
-/*  prints the number of files with
-a given extension in a given directory. The first argument will be the path to
-the directory we want to filter on (e.g. ‘/path/to/dir/’) and a file extension to
-filter by as the second argument.
-*/
-
 const fs = require('fs');
 const path = require('path');
 

@@ -4,12 +4,6 @@ const _ = require('lodash');
 // read the JSON file (or text)
 const filePath = process.argv[2];
 
-// enforce usage
-if (!filePath) {
-  console.error('Usage: node reddit.js <json-file>');
-  process.exit(1);
-}
-
 fs.readFile(filePath, 'utf8', (err, data) => {
   if (err) {
     console.error(`Error reading file: ${err.message}`);
