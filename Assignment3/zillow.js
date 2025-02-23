@@ -1,3 +1,5 @@
+/* zillow.js - completing the zillow assignment, defines callback functions 
+to execute when an endpoint is reached */
 const express = require('express');
 const app = express();
 const port = process.argv[2] || 3000;
