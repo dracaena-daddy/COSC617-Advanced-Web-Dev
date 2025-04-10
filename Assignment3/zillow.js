@@ -50,7 +50,7 @@ app.get('/v1/zillow/prices', (req, res) => {
     res.status(200).json(filteredHouses);
 });
 
-// Handle invalid routes
+// Invalid routes
 app.use((req, res) => {
     res.status(404).json({ error: "Endpoint not found" });
 });
